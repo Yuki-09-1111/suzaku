@@ -20,11 +20,11 @@ class CurrentRecrutingEventsController < ApplicationController
     @current_recruting_event = current_user.current_recruting_events.build(current_recruting_event_params)
 
     if @current_recruting_event.save
-      flash[:success] = '現在募集中のイベントが正常に投稿されました'
+      flash[:success] = 'Current_recruting_event が正常に投稿されました'
       redirect_to @current_recruting_event
     else
       @current_recruting_events = current_user.feed_current_recruting_events.order(id: :desc).page(params[:page])
-      flash.now[:danger] = '現在募集中のイベントが投稿されませんでした'
+      flash.now[:danger] = 'Current_recruting_event が投稿されませんでした'
       render :new
     end
   end
@@ -32,7 +32,7 @@ class CurrentRecrutingEventsController < ApplicationController
   def destroy
     @current_recruting_event.destroy
 
-    flash[:success] = '現在募集中のイベントは正常に削除されました'
+    flash[:success] = 'Current_recruting_event は正常に削除されました'
     redirect_to root_url
   end
   

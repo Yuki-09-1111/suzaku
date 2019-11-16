@@ -20,11 +20,11 @@ class PracticeResultsController < ApplicationController
     @practice_result = current_user.practice_results.build(practice_result_params)
 
     if @practice_result.save
-      flash[:success] = '大会結果が正常に投稿されました'
+      flash[:success] = 'Tournament_resultが正常に投稿されました'
       redirect_to @practice_result
     else
       @practice_results = current_user.feed_practice_results.order(id: :desc).page(params[:page])
-      flash.now[:danger] = '大会結果が投稿されませんでした'
+      flash.now[:danger] = 'Tournament_result が投稿されませんでした'
       render :new
     end
   end
@@ -32,7 +32,7 @@ class PracticeResultsController < ApplicationController
   def destroy
     @practice_result.destroy
 
-    flash[:success] = '大会結果は正常に削除されました'
+    flash[:success] = 'Tournament_result は正常に削除されました'
     redirect_to root_url
   end
   
