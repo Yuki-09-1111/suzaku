@@ -1,0 +1,17 @@
+<h1><%= @board.id %> 件目詳細ページ</h1>
+
+<table class="table table-bordered">
+  <col width="11%">
+  <col width="89%">
+  <tr>
+    <th>件名</th>
+    <td><%= @board.title %></td>
+  </tr>
+  <tr>
+    <th>本文</th>
+    <td><%= simple_format(@board.content) %></td>
+  </tr>
+</table>
+
+<%= link_to '戻る', boards_path, class: "btn btn-success" %>
+<%= link_to '削除', @board, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>

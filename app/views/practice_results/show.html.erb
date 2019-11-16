@@ -1,0 +1,13 @@
+<h1><%= @practice_result.id %> 件目詳細ページ</h1>
+
+<table class="table table-bordered">
+  <col width="11%">
+  <col width="89%">
+  <tr>
+    <th>練習ノート</th>
+    <td><%= @practice_result.chart_of_practice %></td>
+  </tr>
+</table>
+
+<%= link_to '戻る', practice_results_path, class: "btn btn-success" %>
+<%= link_to '削除', @practice_result, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>

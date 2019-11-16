@@ -1,0 +1,25 @@
+<h1><%= @current_recruting_event.id %> 件目詳細ページ</h1>
+
+<table class="table table-bordered">
+  <col width="11%">
+  <col width="89%">
+  <tr>
+    <th>締切日</th>
+    <td><%= @current_recruting_event.end_of_application %></td>
+  </tr>
+  <tr>
+    <th>実施日</th>
+    <td><%= @current_recruting_event.date_of_event %></td>
+  </tr>
+  <tr>
+    <th>大会名</th>
+    <td><%= @current_recruting_event.event_name %></td>
+  </tr>
+  <tr>
+    <th>申込フォーム</th>
+    <td><%= @current_recruting_event.application_form %></td>
+  </tr>
+</table>
+
+<%= link_to '戻る', current_recruting_events_path, class: "btn btn-success" %>
+<%= link_to '削除', @current_recruting_event, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>

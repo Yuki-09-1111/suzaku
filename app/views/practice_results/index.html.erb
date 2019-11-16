@@ -1,0 +1,31 @@
+<h2>今月の練習ノート</h2>
+
+<% if @practice_results.any? %>
+ <% @practice_results.each do |practice_result| %>
+  <table class="table table-bordered">
+    <col width="11%">
+    <col width="89%">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">一覧</th>
+      </tr>
+    </thead>
+    <tbody>
+      　<tr>
+          <th scope="row">No.</th>
+          <td><%= link_to practice_result.id, practice_result %></td>
+        </tr>
+        <tr>
+          <th scope="row">練習ノート</th>
+          <td><%= simple_format(practice_result.chart_of_practice) %></td>
+        </tr>
+    </tbody>
+  </table>
+ <% end %>
+  <div>
+    <%= paginate @practice_results %>
+  </div>
+<% end %>
+
+<%= link_to '新規作成', new_practice_result_path, class: "btn btn-primary" %>

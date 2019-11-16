@@ -1,0 +1,35 @@
+<h2>掲示板</h2>
+
+<% if @boards.any? %>
+ <% @boards.each do |board| %>
+  <table class="table table-bordered">
+    <col width="11%">
+    <col width="89%">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">一覧</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <th scope="row">No.</th>
+          <td><%= link_to board.id, board %></td>
+        </tr>
+         <tr>
+          <th scope="row">件名</th>
+          <td><%= board.title %></td>
+        </tr>
+        <tr>
+          <th scope="row">本文</th>
+          <td><%= simple_format(board.content) %></td>
+        </tr>
+    </tbody>
+  </table>
+ <% end %>
+  <div>
+    <%= paginate @boards %>
+  </div>
+<% end %>
+
+<%= link_to '新規作成', new_board_path, class: "btn btn-primary" %>

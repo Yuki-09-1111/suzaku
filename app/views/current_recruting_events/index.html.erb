@@ -1,0 +1,48 @@
+<h2>現在募集中の大会・行事</h2>
+
+<% if @current_recruting_events.any? %>
+<% @current_recruting_events.each do |current_recruting_event| %>
+  <table class="table table-bordered">
+    <col width="11%">
+    <col width="89%">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">一覧</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <th scope="row">No.</th>
+          <td><%= link_to current_recruting_event.id, current_recruting_event %></td>
+        </tr>
+         <tr>
+          <th scope="row">締切日</th>
+          <td><%= current_recruting_event.end_of_application %></td>
+        </tr>
+        <tr>
+          <th scope="row">実施日</th>
+          <td><%= current_recruting_event.date_of_event %></td>
+        </tr>
+         <tr>
+          <th scope="row">イベント名</th>
+          <td><%= current_recruting_event.event_name %></td>
+        </tr>
+        <tr>
+          <th scope="row">申込フォーム</th>
+          <td><%= current_recruting_event.application_form %></td>
+        </tr>
+    </tbody>
+  </table>
+<% end %>
+  <div>
+    <%= paginate @current_recruting_events %>
+  </div>
+<% end %>
+
+
+<%= link_to '新規作成', new_current_recruting_event_path, class: "btn btn-primary" %>
+
+
+<h3 class="calendar">日程表</h3>
+<iframe src="https://calendar.google.com/calendar/embed?src=bm53hurvou14sm04hjqc9iaub8%40group.calendar.google.com&ctz=Asia%2FTokyo" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>

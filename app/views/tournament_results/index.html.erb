@@ -1,0 +1,40 @@
+<h1>2019年度大会結果</h1>
+
+<% if @tournament_results.any? %>
+<% @tournament_results.each do |tournament_result| %>
+  <table class="table table-bordered">
+    <col width="11%">
+    <col width="89%">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">一覧</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <th scope="row">No.</th>
+          <td><%= link_to tournament_result.id, tournament_result %></td>
+        </tr>
+         <tr>
+          <th scope="row">実施日</th>
+          <td><%= tournament_result.date_of_tournament %></td>
+        </tr>
+        <tr>
+          <th scope="row">大会名</th>
+          <td><%= tournament_result.name %></td>
+        </tr>
+         <tr>
+          <th scope="row">結果</th>
+          <td><%= simple_format(tournament_result.content) %></td>
+        </tr>
+    </tbody>
+  </table>
+<% end %>
+  <div>
+    <%= paginate @tournament_results %>
+  </div>
+<% end %>
+
+<%= link_to '戻る', tournaments_path, class: "btn btn-success" %>
+<%= link_to '新規作成', new_tournament_result_path, class: "btn btn-primary" %>

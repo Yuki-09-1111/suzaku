@@ -1,0 +1,21 @@
+<h1><%= @tournament_result.id %> 件目詳細ページ</h1>
+
+<table class="table table-bordered">
+  <col width="11%">
+  <col width="89%">
+  <tr>
+    <th>実施日</th>
+    <td><%= @tournament_result.date_of_tournament %></td>
+  </tr>
+  <tr>
+    <th>大会名</th>
+    <td><%= @tournament_result.name %></td>
+  </tr>
+  <tr>
+    <th>本文</th>
+    <td><%= simple_format(@tournament_result.content) %></td>
+  </tr>
+</table>
+
+<%= link_to '戻る', tournament_results_path, class: "btn btn-success" %>
+<%= link_to '削除', @tournament_result, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
