@@ -91,4 +91,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # server "db.example.com", user: "deploy", roles: %w{db}
+  server "(126.3.58.131)", user: "ec2-user", roles: %w{app db web}
+
+  set :rails_env, "production"
+  set :unicorn_rack_env, "production"
+
+  # role-based syntax
+  # ==================
 end
