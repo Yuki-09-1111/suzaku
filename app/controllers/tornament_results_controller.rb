@@ -20,11 +20,11 @@ class TournamentResultsController < ApplicationController
     @tournament_result = current_user.tournament_results.build(tournament_result_params)
 
     if @tournament_result.save
-      flash[:success] = 'Tournament_resultが正常に投稿されました'
+      flash[:success] = '大会結果が正常に投稿されました'
       redirect_to @tournament_result
     else
       @tournament_results = current_user.feed_tournament_results.order(id: :desc).page(params[:page])
-      flash.now[:danger] = 'Tournament_result が投稿されませんでした'
+      flash.now[:danger] = '大会結果が投稿されませんでした'
       render :new
     end
   end
@@ -32,7 +32,7 @@ class TournamentResultsController < ApplicationController
   def destroy
     @tournament_result.destroy
 
-    flash[:success] = 'Tournament_result は正常に削除されました'
+    flash[:success] = '大会結果は正常に削除されました'
     redirect_to root_url
   end
   
